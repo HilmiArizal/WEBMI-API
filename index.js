@@ -15,7 +15,8 @@ app.get('/getAllUsers', (req, res) => {
     res.json(users);
 })
 
-const {userRouter} = require('./Router');
-app.use('/users', userRouter)
+const {userRouter, todoRouter} = require('./Router');
+app.use('/users', userRouter);
+app.use('/todos', todoRouter);
 
 app.listen(PORT, () => console.log(`${PORT} IS RUNNNIG`))
