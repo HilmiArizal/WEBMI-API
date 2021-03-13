@@ -10,14 +10,6 @@ module.exports = {
             res.status(200).send(resultsAddTodo)
         })
     },
-    getTodo: (req, res) => {
-        const queryAddTodo = `INSERT INTO todo SET ?`;
-        connection.query(queryAddTodo, req.body, (err, resultsAddTodo) => {
-            if(err) return res.status(500).send(err)
-
-            res.status(200).send(resultsAddTodo)
-        })
-    },
     editTodo: (req, res) => {
         const {name, date, activity, description} = req.body;
         const queryEditTodo = `UPDATE todo SET name = '${name}', date = '${date}', activity = '${activity}', description = '${description}' WHERE idtodo = ${req.query.idtodo}`;
