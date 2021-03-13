@@ -26,6 +26,7 @@ module.exports = {
             if (resultsLoginUser[0].password !== hashPassword) return res.status(500).send("Password it's wrong")
 
             const token = createJWTToken({...resultsLoginUser[0]});
+            console.log(token);
             res.status(200).send({...resultsLoginUser[0], token});
         })
     }
